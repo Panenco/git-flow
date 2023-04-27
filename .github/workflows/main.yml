@@ -17,12 +17,14 @@ jobs:
                     node-version: '18'
 
             -   name: Get feature name
-                id: get-feature-name
-                uses: Panenco/git-flow/deploy@master
+                id: feature
+                uses: Panenco/git-flow/feature@master
+                with:
+                    delimiter: '-'
 
             -   name: Set feature name
                 run: |
                     echo '
                     ## Feature name
-                    ${{ steps.get-feature-name.outputs.feature_name }}
+                    ${{ steps.feature.outputs.feature_name }}
                     ' >> $GITHUB_STEP_SUMMARY

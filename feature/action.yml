@@ -1,0 +1,15 @@
+name: "Create a feature name"
+description: "Create a feature name based on the branch. Works for push, pull request and delete events"
+inputs:
+    delimiter:
+        description: "The delimiter that would be used to construct the feature name based on the branch. We can't use the default`/` as it's an invalid URL hostname. Should be ASCII letters, numbers and hyphens"
+        required: false
+        default: '-'
+
+outputs:
+    feature_name:
+        description: "The generated feature name"
+
+runs:
+    using: 'node16'
+    main: '../lib/feature-name.js'
