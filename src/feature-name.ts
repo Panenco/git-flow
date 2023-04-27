@@ -1,11 +1,6 @@
 import core from "@actions/core"
 import github from "@actions/github"
 
-const ref = github.context.ref;
+const context = github.context
 
-console.log(`Hello ${ref}!`)
-
-const featureName = ref.replace("refs/heads/", "")
-	.replace('/', '-');
-
-core.setOutput("feature_name", featureName)
+core.setOutput("feature_name", JSON.stringify(context))
