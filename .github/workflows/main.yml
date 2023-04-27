@@ -2,11 +2,8 @@ name: test workflow
 
 on:
     push:
-        branches:
-            - master
     delete:
-        branches:
-            - master
+
 
 jobs:
     test:
@@ -14,6 +11,10 @@ jobs:
         steps:
             -   name: Checkout
                 uses: actions/checkout@v2
+
+            -   uses: actions/setup-node@v3
+                with:
+                    node-version: '18'
 
             -   name: Get feature name
                 id: get-feature-name
