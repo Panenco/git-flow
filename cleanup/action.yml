@@ -2,42 +2,42 @@ name: "Temporary environment cleanup"
 description: "Action to clean up the GCP App engine service"
 inputs:
     workload_identity_provider:
-        description: 'Google cloud iam Workload federation provider. ex projects/1111111/locations/global/workloadIdentityPools/github-workload/providers/deployment-provider'
+        description: "Google cloud iam Workload federation provider. ex projects/1111111/locations/global/workloadIdentityPools/github-workload/providers/deployment-provider"
         required: true
 
     service_account:
-        description: 'The service account email to be used for authenticating using workload identity provider'
+        description: "The service account email to be used for authenticating using workload identity provider"
         required: true
 
     delimiter:
         description: "The delimiter that would be used to construct the feature name based on the branch. We can't use the default`/` as it's an invalid URL hostname. Should be ASCII letters, numbers and hyphens"
         required: false
-        default: '-'
+        default: "-"
 
 runs:
-    using: 'composite'
+    using: "composite"
     steps:
         -   name: Create a feature name
             id: feature
             uses: Panenco/git-flow/feature@master
             with:
-                delimiter: '-'
+                delimiter: "-"
 
-        -   id: auth
-            name: Authenticate to Google Cloud
+        -   name: Authenticate to Google Cloud
+            id: auth
             uses: google-github-actions/auth@v1
             with:
                 workload_identity_provider: ${{ inputs.workload_identity_provider }}
                 service_account: ${{ inputs.service_account }}
 
-        -   name: "Set up Cloud SDK"
+        -   name: Set up Cloud SDK
             uses: "google-github-actions/setup-gcloud@v1"
 
         -   name: Set credentials
             shell: bash
             run: gcloud auth login --cred-file=${{steps.auth.outputs.credentials_file_path}}
 
-        -   name: remove service
+        -   name: Remove service
             shell: bash
             run: |
                 gcloud app services delete ${{ steps.feature.outputs.feature_name }} --quiet
