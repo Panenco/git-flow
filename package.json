@@ -4,7 +4,7 @@
 	"description": "",
 	"type": "module",
 	"scripts": {
-		"build": "tsx --tsconfig tsconfig.json ./esbuild.config.ts",
+		"build": "NODE_ENV=production tsx --tsconfig tsconfig.json ./esbuild.config.ts",
 		"watch": "tsx --tsconfig tsconfig.json ./esbuild.config.ts --watch"
 	},
 	"keywords": [],
