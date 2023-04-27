@@ -39,7 +39,7 @@ const featureName = pipe(
 const valid = isValidName(featureName);
 
 if (!valid) {
-	core.setFailed(`Invalid feature name: ${featureName}`) as never;
+	core.setFailed(`Invalid feature name: ${featureName}. You've chosen "${delimiter}" as a delimiter, try something else, like "-"`) as never;
 }
 
 
