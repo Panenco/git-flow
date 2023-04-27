@@ -10,15 +10,15 @@ All the explanations and examples are in that repo.
 This action creates a GCP service name based on the branch name
 
 ```yml
-      - name: Create a feature name
-        id: feature
-        uses: Panenco/git-flow/feature@master
-        with:
-            delimiter: '-'
+- name: Create a feature name
+  id: feature
+  uses: Panenco/git-flow/feature@master
+  with:
+    delimiter: '-'
 
-	  - name: Print the feature name
-		run: |
-			echo "Feature name: ${{ steps.feature.outputs.feature_name }}"
+- name: Print the feature name
+  run: |
+    echo "Feature name: ${{ steps.feature.outputs.feature_name }}"
 
 ```
 
