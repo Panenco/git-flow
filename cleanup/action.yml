@@ -21,7 +21,7 @@ runs:
             id: feature
             uses: Panenco/git-flow/feature@master
             with:
-                delimiter: '/'
+                delimiter: '-'
 
         -   id: auth
             name: Authenticate to Google Cloud
