@@ -1,0 +1,27 @@
+name: test workflow
+
+on:
+    push:
+        branches:
+            - master
+    delete:
+        branches:
+            - master
+
+jobs:
+    test:
+        runs-on: ubuntu-latest
+        steps:
+            -   name: Checkout
+                uses: actions/checkout@v2
+
+            -   name: Get feature name
+                id: get-feature-name
+                uses: Panenco/git-flow/deploy@master
+
+            -   name: Set feature name
+                run: |
+                    echo '
+                    ## Feature name
+                    ${{ steps.get-feature-name.outputs.feature_name }}
+                    ' >> $GITHUB_STEP_SUMMARY

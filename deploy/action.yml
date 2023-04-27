@@ -1,0 +1,5 @@
+name: "Get feature branch name"
+description: "Get feature branch name"
+runs:
+    using: 'node16'
+    main: '../lib/feature-name.js'
