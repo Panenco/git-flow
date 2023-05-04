@@ -23,7 +23,7 @@ const getBranchName = () => {
 };
 
 const normalizeName = (ref: string) => {
-	return ref.replace("refs/heads", "");
+	return ref.replace("refs/heads/", "");
 };
 
 const transformName = (branchName: string) => {
