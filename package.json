@@ -1,26 +1,18 @@
 {
 	"name": "git-flow",
-	"version": "0.0.0",
-	"description": "",
+	"version": "0.0.1",
 	"type": "module",
 	"scripts": {
-		"build": "NODE_ENV=production tsx --tsconfig tsconfig.json ./esbuild.config.ts",
-		"watch": "tsx --tsconfig tsconfig.json ./esbuild.config.ts --watch",
-		"test": "vitest"
+		"build": "./build.sh"
 	},
-	"keywords": [],
-	"author": "",
 	"license": "MIT",
 	"devDependencies": {
-		"@types/node": "^18.16.1",
-		"commander": "^10.0.1",
-		"esbuild": "^0.17.18",
-		"tsx": "^3.12.6",
-		"typescript": "^5.0.4",
-		"vitest": "^0.30.1"
+		"@types/node": "^20.11.20",
+		"esbuild": "^0.20.1"
 	},
 	"dependencies": {
 		"@actions/core": "^1.10.0",
 		"@actions/github": "^5.1.1"
-	}
+	},
+	"packageManager": "pnpm@8.15.3"
 }

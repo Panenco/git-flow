@@ -11,5 +11,5 @@ outputs:
         description: "The generated feature name"
 
 runs:
-    using: "node16"
-    main: "../lib/feature-name.js"
+    using: "docker"
+    image: "../Dockerfile"
