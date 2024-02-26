@@ -2,13 +2,10 @@
 	"name": "git-flow",
 	"version": "0.0.1",
 	"type": "module",
-	"scripts": {
-		"build": "./build.sh"
-	},
+	"scripts": {},
 	"license": "MIT",
 	"devDependencies": {
-		"@types/node": "^20.11.20",
-		"esbuild": "^0.20.1"
+		"@types/node": "^20.11.20"
 	},
 	"dependencies": {
 		"@actions/core": "^1.10.0",
